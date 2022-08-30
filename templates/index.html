@@ -1,0 +1,60 @@
+{% extends 'Template/main.html' %}
+
+
+{% block swiper-one %}
+    {% for serv in slider %}
+        <div class="swiper-slide">
+            <a href="{% url 'blog:detail' serv.id %}">
+                <div class="card-slider__image" style="background-image: url({{ serv.image.url }});"></div>
+                <div class="card-slider__body">
+                    <div class="card-slider__body-inner">
+                        <span class="card-slider__category"></span>
+                        <div class="card-slider__title">{{ serv.title }}</div>
+                        <div class="card-slider__excerpt">
+                            {{ serv.short_content }}
+                        </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block swiper-two %}
+    {% for serv in slider %}
+        <div class="swiper-slide">
+            <div class="slider-thumbnails__slide" style="background-image: url({{ serv.image.url }});">
+                <span class="slider-thumbnails__title">{{ serv.title }}</span>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
+
+{% block post-cards %}
+    {% for serv in post %}
+        <div class="post-card post-card--grid w-animate" data-animate-style="fadeinup">
+            <a href="{% url 'blog:detail' serv.id %}">
+                <div class="post-card__thumbnail">
+                    <img
+                            width="335"
+                            height="220"
+                            src="{{ serv.image.url }}"
+                            class="attachment-reboot_small size-reboot_small wp-post-image"
+                            alt="{% url 'blog:detail' serv.id %}"
+                            loading="lazy"
+                            itemprop="image"
+                            href="{% url 'blog:detail' serv.id %}"
+                    />
+                    <span itemprop="articleSection" class="post-card__category"></span>
+                </div>
+            </a>
+            <div class="post-card__body">
+                <div class="post-card__title" itemprop="name">
+                    <span itemprop="headline">
+                        <a href="{% url 'blog:detail' serv.id %}">{{ serv.title }}</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
