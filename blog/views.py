@@ -1,6 +1,7 @@
 from django.contrib.sitemaps import Sitemap
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from yaturbo import YandexTurboFeed
 
 from blog.models import Post
 
@@ -24,7 +25,7 @@ class PostDetail(DetailView):
 
     def get(self, request, pk):
         post = Post.objects.get(pk=pk)
-        share = Post.objects.order_by('-date').order_by("?")[0:10]
+        share = Post.objects.order_by('-date').order_by("?")[0:8]
         share_left = Post.objects.order_by('-date').order_by("?")[0:5]
         context = {
             'post': post,
@@ -32,6 +33,13 @@ class PostDetail(DetailView):
             'share_left': share_left,
         }
         return render(request, self.template_name, context)
+
+
+class sitemap(ListView):
+    template_name = 'Template/sitemap.html'
+    model = Post
+    context_object_name = 'post'
+
 
 class PostSitemap(Sitemap):
     changefreq = 'weekly'

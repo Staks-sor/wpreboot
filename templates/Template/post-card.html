@@ -724,7 +724,7 @@
                 <div class="sticky-sidebar js-sticky-sidebar">
                     <div id="search-2" class="widget widget_search">
                         <div class="post-cards post-cards--vertical">
-                        <h3>Может понравится</h3>
+                        <h3>Интересные статьи</h3>
                             {% for serv in share_left %}
                                 <div class="post-card post-card--related">
                                     <div class="post-card__thumbnail">
@@ -737,7 +737,6 @@
                                             {{ serv.title }}
                                         </a>
                                     </div>
-                                    <div class="post-card__description">{{ serv.short_content|truncatechars:100 }}</div>
                                 </div>
                             {% endfor %}
                         </div>
@@ -765,7 +764,6 @@
                                     {{ serv.title }}
                                 </a>
                             </div>
-                            <div class="post-card__description">{{ serv.short_content|truncatechars:100 }}</div>
                         </div>
                     {% endfor %}
                 </div>

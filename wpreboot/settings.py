@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'ckeditor',
+    'yaturbo',
     'blog',
 ]
 
@@ -105,11 +106,11 @@ CKEDITOR_CONFIGS = {
             ['Bold', 'Italic', 'Underline', 'Format', 'RemoveFormat'],
             ['NumberedList', 'BulletedList'],
             ['Blockquote', 'CodeSnippet'],
-            ['Image', 'Link', 'Unlink'],
+            ['Image', 'Link', 'Unlink', 'Youtube'],
             ['Maximize']
         ],
         # Плагин
-        'extraPlugins': ','.join(['codesnippet', 'uploadimage', 'widget', 'lineutils', ]),
+        'extraPlugins': ','.join(['codesnippet', 'youtube', 'uploadimage', 'widget', 'lineutils',]),
     }
 }
 

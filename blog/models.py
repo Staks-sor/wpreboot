@@ -5,7 +5,6 @@ class Post(models.Model):
     image = models.ImageField(upload_to='media/', verbose_name='Изображение')
     title = models.CharField(max_length=500, verbose_name='Заголовок поста')
     content = models.TextField(verbose_name='Содержимое поста')
-    short_content = models.TextField(verbose_name='Короткое содержание')
     date = models.DateTimeField(auto_now_add=True)
 
     class Meta:
