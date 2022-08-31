@@ -15,6 +15,7 @@ urlpatterns = [
                   path('admin/', admin.site.urls),
                   path('ckeditor/', include('ckeditor_uploader.urls')),
                   path('', include('blog.urls', namespace='blog')),
+                  path('feeds/turbo.xml', TurboFeed()),
                   path('custom-sitemap.xml', views.sitemap.as_view(),
                        {'sitemaps': sitemaps, 'template_name': 'custom_sitemap.html'},
                        name='django.contrib.sitemaps.views.sitemap'),

@@ -90,29 +90,47 @@ DATABASES = {
 # Ckeditor code review
 # https://russianblogs.com/article/5550650974/
 
+
 CKEDITOR_CONFIGS = {
-    # Когда имя конфигурации по умолчанию, django-ckeditor использует эту конфигурацию по умолчанию
     'default': {
-        # Используйте упрощенный китайский
-        'language': 'ru',
-        # Пожалуйста, установите ширину и высоту редактора в соответствии с вашей страницей
-        'width': '730px',
-        'height': '150px',
-        'image_previewText': ' ',
-        'tabSpaces': 4,
-        'toolbar': 'Custom',
-        # Добавить кнопку здесь
-        'toolbar_Custom': [
-            ['Bold', 'Italic', 'Underline', 'Format', 'RemoveFormat'],
-            ['NumberedList', 'BulletedList'],
-            ['Blockquote', 'CodeSnippet'],
-            ['Image', 'Link', 'Unlink', 'Youtube'],
-            ['Maximize']
+        'skin': 'moono',
+        'toolbar_Basic': [
+            ['Source', '-', 'Bold', 'Italic']
         ],
-        # Плагин
-        'extraPlugins': ','.join(['codesnippet', 'youtube', 'uploadimage', 'widget', 'lineutils',]),
+        'toolbar_YourCustomToolbarConfig': [
+            {'name': 'document', 'items': ['Source']},
+            {'name': 'clipboard', 'items': ['Undo', 'Redo']},
+            {'name': 'insert',
+             'items': ['Image', 'Youtube', 'Flash', 'Table', 'HorizontalRule']},
+            {'name': 'editing', 'items': ['Find', 'Replace']},
+            '/',
+            {'name': 'basicstyles',
+             'items': ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript', '-', 'RemoveFormat']},
+            {'name': 'paragraph',
+             'items': ['NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-',
+                       'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock']},
+            {'name': 'links', 'items': ['Link', 'Unlink']},
+            '/',
+            {'name': 'styles', 'items': ['Styles', 'Format', 'Font', 'FontSize']},
+            {'name': 'colors', 'items': ['TextColor', 'BGColor']},
+        ],
+        'toolbar': 'YourCustomToolbarConfig',  # put selected toolbar config here
+        # 'toolbarGroups': [{ 'name': 'document', 'groups': [ 'mode', 'document', 'doctools' ] }],
+        'height': 420,
+        'width': '100%',
+        # 'filebrowserWindowHeight': 725,
+        # 'filebrowserWindowWidth': 940,
+        # 'toolbarCanCollapse': True,
+        # 'mathJaxLib': '//cdn.mathjax.org/mathjax/2.2-latest/MathJax.js?config=TeX-AMS_HTML',
+        'tabSpaces': 4,
+        'extraPlugins': ','.join([
+            'uploadimage', # the upload image feature
+            # your extra plugins here
+            'youtube',
+        ]),
     }
 }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -152,7 +170,7 @@ STATIC_URL = 'static/'
 
 STATICFILES_DIRS = [
     BASE_DIR / "static",
-]
+    ]
 CKEDITOR_UPLOAD_PATH = 'images'
 
 MEDIA_URL = '/media/'
