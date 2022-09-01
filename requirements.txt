@@ -1,0 +1,11 @@
+asgiref==3.5.2
+bleach==5.0.1
+Django==4.1
+django-ckeditor==6.5.0
+django-js-asset==2.0.0
+django-yaturbo==1.0.1
+Pillow==9.2.0
+pytils==0.4.1
+six==1.16.0
+sqlparse==0.4.2
+webencodings==0.5.1
