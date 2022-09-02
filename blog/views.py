@@ -33,3 +33,10 @@ class PostDetail(DetailView):
             'share_left': share_left,
         }
         return render(request, self.template_name, context)
+
+
+class UrlAll(ListView):
+    template_name = 'Template/sitemap.html'
+    model = Post
+    context_object_name = 'post'
+    paginate_by = 10
