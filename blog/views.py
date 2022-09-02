@@ -33,17 +33,3 @@ class PostDetail(DetailView):
             'share_left': share_left,
         }
         return render(request, self.template_name, context)
-
-
-class sitemap(ListView):
-    template_name = 'Template/sitemap.html'
-    model = Post
-    context_object_name = 'post'
-
-
-class PostSitemap(Sitemap):
-    changefreq = 'weekly'
-    priority = 0.9
-
-    def items(self):
-        return Post.objects.all()

@@ -3,20 +3,23 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-from blog import views
-from blog.views import PostSitemap
 from wpreboot.feeds import TurboFeed
+from wpreboot.sitemaps import BlogSitemap
+
+from django.contrib.sitemaps import views
 
 sitemaps = {
-    'posts': PostSitemap,
+    'static': BlogSitemap,
 }
 
 urlpatterns = [
-                  path('admin/', admin.site.urls),
-                  path('ckeditor/', include('ckeditor_uploader.urls')),
-                  path('', include('blog.urls', namespace='blog')),
-                  path('feeds/turbo.xml', TurboFeed()),
-                  path('custom-sitemap.xml', views.sitemap.as_view(),
-                       {'sitemaps': sitemaps, 'template_name': 'custom_sitemap.html'},
-                       name='django.contrib.sitemaps.views.sitemap'),
-              ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
+    path('', include('blog.urls', namespace='blog')),
+    path('feeds/turbo.xml', TurboFeed()),
+    # the sitemap
+    path('sitemap.xml', views.index, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.index'),
+    path('sitemap-<section>.xml', views.sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

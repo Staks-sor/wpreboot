@@ -1,87 +1,167 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:sitemap="http://www.sitemaps.org/schemas/sitemap/0.9"><head><title>XML Sitemap</title><meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <style type="text/css">
-				body {
-					font-family: Helvetica, Arial, sans-serif;
-					font-size: 13px;
-					color: #545353;
-				}
-				table {
-					border: none;
-					border-collapse: collapse;
-				}
-				#sitemap tr:nth-child(odd) td {
-					background-color: #eee !important;
-				}
-				#sitemap tbody tr:hover td {
-					background-color: #ccc;
-				}
-				#sitemap tbody tr:hover td, #sitemap tbody tr:hover td a {
-					color: #000;
-				}
-				#content {
-					margin: 0 auto;
-					width: 1000px;
-				}
-				.expl {
-					margin: 18px 3px;
-					line-height: 1.2em;
-				}
-				.expl a {
-					color: #da3114;
-					font-weight: 600;
-				}
-				.expl a:visited {
-					color: #da3114;
-				}
-				a {
-					color: #000;
-					text-decoration: none;
-				}
-				a:visited {
-					color: #777;
-				}
-				a:hover {
-					text-decoration: underline;
-				}
-				td {
-					font-size:11px;
-				}
-				th {
-					text-align:left;
-					padding-right:30px;
-					font-size:11px;
-				}
-				thead th {
-					border-bottom: 1px solid #000;
-				}
-			</style>
+        table {
+            border-collapse: collapse;
+            width: 800px;
+            max-width: 100%;
+        }
+
+        td,
+        th {
+            border: 1px solid gray;
+            border-top: 0;
+            padding: 2px 5px;
+            width: 300px;
+        }
+
+        th {
+            background: #ccc;
+            border-top: 1px solid gray;
+        }
+
+        tbody td:last-child {
+            text-align: right;
+        }
+
+        .toggler {
+            display: inline-block;
+            user-select: none;
+            cursor: pointer;
+        }
+
+        .toggler input {
+            margin: 0 .75em 0 0;
+            appearance: none;
+            -webkit-apppearance: none;
+            display: inline-block;
+            width: 11px;
+            height: 11px;
+            background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAACXBIWXMAAAsSAAALEgHS3X78AAAAkElEQVQYlXWOvRWDQAyDv/DYK2wQSro8OkpGuRFcUjJCRmEE0TldCpsjPy9qzj7Jki62Pgh4vnqbbbEWuN+use/PlArwHccWGg780psENGFY6W4YgxZIAM339WmT3m397YYxxn6aASslFfVotYLTT3NwcuTKlFpNR2sdEak4acdKeafPlE2SZ7sw/1BEtX94AXYTVmyR94mPAAAAAElFTkSuQmCC) no-repeat center/contain;
+        }
+
+        .toggler input:checked {
+            background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAsAAAALCAIAAAAmzuBxAAAACXBIWXMAAAsSAAALEgHS3X78AAAAeklEQVQYlX2PsRGDMAxFX3zeK9mAlHRcupSM4hFUUjJCRpI70VHIJr7D8BtJ977+SQ9Zf7isVG16WSQC0/D0OW/FqoBlDFkIVJ2xAhA8sI/NHbcYiFrPfI0fGklKagDx2F4ltdtaM0J9L3dxcVxi+zv62E+MwPs7c60dClRP6iug7wUAAAAASUVORK5CYII=);
+        }
+
+        .dropdown {
+            display: none;
+        }
+
+        .dropdown--visible {
+            display: table-row;
+        }
+
+        .dropdown td:first-child {
+            padding-left: calc(5px + 15px * var(--level));
+        }
+    </style>
 </head>
 <body>
+
 <div id="content">
     <h1>XML Sitemap</h1>
-    <table id="sitemap" cellpadding="3">
+    <button id="slideUp">Свернуть всё</button> &#160; <button id="slideDown">Развернуть всё</button>
+    <br><br>
+    <table id="MyTable">
         <thead>
         <tr>
-            <th width="80%">
-            URL
-            </th>
-            <th title="Last Modification Time" width="15%">
-            Last Mod.
-            </th>
+            <th>URL</th>
+            <th>Last Mod.</th>
         </tr>
         </thead>
         <tbody>
-        {% for serv in post %}
         <tr>
             <td>
-            <a href="{% url 'blog:detail' serv.id %}">{{request.get_host}}{% url 'blog:detail' serv.id %}</a>
-        </td>
-            <td>{{ serv.date }}</td>
+                <label class="toggler"><input type="checkbox"><span>sitemap.xml</span></label>
+            </td>
+            <td>
+
+            </td>
         </tr>
-        <tr>
+        {% for serv in post %}
+            <tr class="dropdown" style="--level: 1" data-level="1">
+                <td>
+                    <label class="toggler"><span><a href="{% url 'blog:detail' serv.id %}">{{request.get_host}}{% url 'blog:detail' serv.id %}</a></span></label>
+                </td>
+                <td>{{ serv.date }}</td>
+            </tr>
         {% endfor %}
         </tbody>
     </table>
 </div>
+
+<script>
+    [].forEach.call(document.querySelectorAll('.toggler input'), function(input) {
+        input.addEventListener('change', function() {
+
+            var row = input.closest('tr');
+
+            if (input.checked) {
+                showChildRows(row);
+            } else {
+                hideChildRows(row);
+            }
+        })
+    });
+
+    //получить дочерние ряды всех уровней вложенности
+    function getChildRows(row) {
+        var childRows = [],
+            currentRow = row,
+            startLevel = +row.getAttribute('data-level');
+
+        while (currentRow && currentRow.nextElementSibling && +currentRow.nextElementSibling.getAttribute('data-level') > startLevel) {
+            childRows.push(currentRow.nextElementSibling);
+            currentRow = currentRow.nextElementSibling;
+        }
+        return childRows;
+    }
+
+    //скрыть все дочерние ряды
+    function hideChildRows(row) {
+        var childRows = getChildRows(row);
+        childRows.forEach(function(childRow) {
+            childRow.classList.remove('dropdown--visible')
+        })
+    }
+
+    //показать дочерние ряды в зависимости от состояния чекбокса
+    function showChildRows(row) {
+        var childRows = getChildRows(row), //все дочерние ряды
+            level = +row.getAttribute('data-level'),
+            toggler = row.querySelector('.toggler input'),
+            immediateChildren = childRows.filter(function(tr) {
+                return tr.getAttribute('data-level') == level + 1
+            }); //непосредственно дочерние ряды
+
+        if (toggler && toggler.checked) { //если ряд раскрыт, показываем непосредственно дочерние ряды и повторяем для них такую же процедуру
+
+            immediateChildren.forEach(function(childRow) {
+                childRow.classList.add('dropdown--visible')
+                showChildRows(childRow); //типа рекурсия
+            })
+        }
+    }
+
+    //кнопки
+    document.getElementById('slideUp').addEventListener('click', function() {
+        [].forEach.call(document.querySelectorAll('.toggler input'), function(input) {
+            input.checked = false
+        });
+        [].forEach.call(document.querySelectorAll('.dropdown--visible'), function(row) {
+            row.classList.remove('dropdown--visible')
+        });
+    })
+    document.getElementById('slideDown').addEventListener('click', function() {
+        [].forEach.call(document.querySelectorAll('.toggler input'), function(input) {
+            input.checked = true
+        });
+        [].forEach.call(document.querySelectorAll('.dropdown'), function(row) {
+            row.classList.add('dropdown--visible')
+        });
+    })
+</script>
 </body>
 </html>
+
+

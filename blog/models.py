@@ -10,6 +10,7 @@ class Post(models.Model):
     class Meta:
         verbose_name = 'Пост на сайте'
         verbose_name_plural = 'Посты на сайте'
+        ordering = ['-id']
 
     def __str__(self):
         return self.title
