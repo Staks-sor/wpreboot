@@ -39,4 +39,4 @@ class UrlAll(ListView):
     template_name = 'Template/sitemap.html'
     model = Post
     context_object_name = 'post'
-    paginate_by = 10
+    paginate_by = 1000
