@@ -40,3 +40,10 @@ class UrlAll(ListView):
     model = Post
     context_object_name = 'post'
     paginate_by = 1000
+
+
+class YandexTurbo(ListView):
+    template_name = 'turbo.xml'
+    model = Post
+    context_object_name = 'turbo'
+    paginate_by = 1000
