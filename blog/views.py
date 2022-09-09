@@ -56,6 +56,7 @@ class YandexTurbo(ListView):
     paginate_by = 1000
 
 
+
 class ParceObjects(APIView):
     def post(self, request):
         try:
