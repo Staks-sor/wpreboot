@@ -9,3 +9,4 @@ pytils==0.4.1
 six==1.16.0
 sqlparse==0.4.2
 webencodings==0.5.1
+djangorestframework 

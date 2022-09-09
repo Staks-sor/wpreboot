@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0"
+     xmlns:atom="https://www.w3.org/2005/Atom" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="https://www.w3.org/2005/Atom ">
+    <channel>
+        <title>yandex</title>
+        <language>ru</language>
+        <lastBuildDate>Sun, 04 Sep 2022 18:09:56 +0000</lastBuildDate>
+        {% for serv in turbo %}
+        <item>
+            <title>{{ serv.title }}</title>
+            <link>{{ request.get_host }}{% url 'blog:detail' serv.id %}</link>
+            <description>
+                {{ serv.content|safe }}
+            </description>
+            <guid>{{ request.get_host }}{% url 'blog:detail' serv.id %}</guid>
+        </item>
+        {% endfor %}
+    </channel>
+</rss>
+
