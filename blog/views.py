@@ -3,15 +3,16 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from django.db.utils import IntegrityError
+from rest_framework.decorators import api_view
 
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 from yaturbo import YandexTurboFeed
 
-
 from blog.models import Post
 from blog.serializers import PostSerializer
+
 
 class Index(ListView):
     template_name = 'index.html'
@@ -56,14 +57,11 @@ class YandexTurbo(ListView):
     paginate_by = 1000
 
 
-
-class ParceObjects(APIView):
-    def post(self, request):
-        try:
-                form = request.data
-                Post.objects.create(**form)
-                post_model = get_object_or_404(Post)
-                return Response(PostSerializer(post_model).data, status.HTTP_201_CREATED)
-
-        except (TypeError, ValueError, IntegrityError):
-            return Response({'detail': 'invalid request data'}, status.HTTP_400_BAD_REQUEST)
+@api_view(["POST"])
+def ParceObjects(request, *args, **kwargs):
+    serializer = PostSerializer(data=request.POST)
+    # raise_exception= if form.error reutnr error and status400
+    if serializer.is_valid(raise_exception=True):
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response({}, status=400)
