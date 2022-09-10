@@ -1,0 +1,159 @@
+"Traceback (most recent call last):
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\__init__.py"", line 346, in loads
+    return _default_decoder.decode(s)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 355, in raw_decode
+    raise JSONDecodeError(""Expecting value"", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, imagelinks)
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 23, in post_data
+    print(response, response.json())
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\__init__.py"", line 346, in loads
+    return _default_decoder.decode(s)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 355, in raw_decode
+    raise JSONDecodeError(""Expecting value"", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, imagelinks)
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 23, in post_data
+    print(response, response.json())
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\__init__.py"", line 346, in loads
+    return _default_decoder.decode(s)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 355, in raw_decode
+    raise JSONDecodeError(""Expecting value"", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, imagelinks)
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 23, in post_data
+    print(response, response.json())
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\__init__.py"", line 346, in loads
+    return _default_decoder.decode(s)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 355, in raw_decode
+    raise JSONDecodeError(""Expecting value"", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, imagelinks)
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 23, in post_data
+    print(response, response.json())
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\__init__.py"", line 346, in loads
+    return _default_decoder.decode(s)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 355, in raw_decode
+    raise JSONDecodeError(""Expecting value"", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 23, in post_data
+    print(response, response.json())
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 971, in json
+    return complexjson.loads(self.text, **kwargs)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\__init__.py"", line 346, in loads
+    return _default_decoder.decode(s)
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File ""C:\Users\shahz\AppData\Local\Programs\Python\Python310\lib\json\decoder.py"", line 355, in raw_decode
+    raise JSONDecodeError(""Expecting value"", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+  File ""c:\Users\shahz\OneDrive\Desktop\TheMoment\wpreboot\parcer\parcer.py"", line 23, in post_data
+    print(response, response.json())
+  File ""C:\Users\shahz\OneDrive\Desktop\TheMoment\venv\lib\site-packages\requests\models.py"", line 975, in json
+    raise RequestsJSONDecodeError(e.msg, e.doc, e.pos)
+requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+";date: <built-in method now of type object at 0x00007FFC417A0CD0>
+
+
