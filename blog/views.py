@@ -69,8 +69,8 @@ class ParceObjects(CreateAPIView):
 
     def perform_create(self, serializer):
         if serializer.is_valid(raise_exception=True):
-
-            serializer.save(image=self.request.data.get('image'),)
+            print(serializer)
+            serializer.save()
             return Response(serializer.data, status=201)
         return Response({'data': 'invalid data'}, status=400)
 

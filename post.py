@@ -11,7 +11,7 @@ data = {
 	'content' : 'something2',
 }
 
-response = requests.post(link, json=data, files={'image': image},)
+response = requests.post(link, json=data, files={'image': image, },)
 
 print(response, response.json())
 
