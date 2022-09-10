@@ -156,4 +156,237 @@ requests.exceptions.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
 
 ";date: <built-in method now of type object at 0x00007FFC417A0CD0>
 
+"Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 54, in <module>
+    print('отправка данных', img['src'], end=""\n\n\n"")
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 174, in _new_conn
+    conn = connection.create_connection(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\connection.py"", line 95, in create_connection
+    raise err
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\connection.py"", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 703, in urlopen
+    httplib_response = self._make_request(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1040, in _send_output
+    self.send(msg)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 980, in send
+    self.connect()
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 205, in connect
+    conn = self._new_conn()
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000022EE6333AF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\adapters.py"", line 489, in send
+    resp = conn.urlopen(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 787, in urlopen
+    retries = retries.increment(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\retry.py"", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000022EE6333AF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 55, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 22, in post_data
+    response = requests.post(link, json=data)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\api.py"", line 115, in post
+    return request(""post"", url, data=data, json=json, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\api.py"", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\sessions.py"", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\sessions.py"", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\adapters.py"", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000022EE6333AF0>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 174, in _new_conn
+    conn = connection.create_connection(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\connection.py"", line 95, in create_connection
+    raise err
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\connection.py"", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 703, in urlopen
+    httplib_response = self._make_request(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1040, in _send_output
+    self.send(msg)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 980, in send
+    self.connect()
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 205, in connect
+    conn = self._new_conn()
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000022EE6C42790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\adapters.py"", line 489, in send
+    resp = conn.urlopen(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 787, in urlopen
+    retries = retries.increment(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\retry.py"", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000022EE6C42790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 55, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 22, in post_data
+    response = requests.post(link, json=data)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\api.py"", line 115, in post
+    return request(""post"", url, data=data, json=json, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\api.py"", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\sessions.py"", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\sessions.py"", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\adapters.py"", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000022EE6C42790>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 174, in _new_conn
+    conn = connection.create_connection(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\connection.py"", line 95, in create_connection
+    raise err
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\connection.py"", line 85, in create_connection
+    sock.connect(sa)
+ConnectionRefusedError: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 703, in urlopen
+    httplib_response = self._make_request(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1285, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1331, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1280, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 1040, in _send_output
+    self.send(msg)
+  File ""C:\Users\shahzod.ravshanov\AppData\Local\Programs\Python\Python39\lib\http\client.py"", line 980, in send
+    self.connect()
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 205, in connect
+    conn = self._new_conn()
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connection.py"", line 186, in _new_conn
+    raise NewConnectionError(
+urllib3.exceptions.NewConnectionError: <urllib3.connection.HTTPConnection object at 0x0000024110972700>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\adapters.py"", line 489, in send
+    resp = conn.urlopen(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\connectionpool.py"", line 787, in urlopen
+    retries = retries.increment(
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\urllib3\util\retry.py"", line 592, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024110972700>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 22, in post_data
+    response = requests.post(link, json=data)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\api.py"", line 115, in post
+    return request(""post"", url, data=data, json=json, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\api.py"", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\sessions.py"", line 587, in request
+    resp = self.send(prep, **send_kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\sessions.py"", line 701, in send
+    r = adapter.send(request, **kwargs)
+  File ""C:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\venv\lib\site-packages\requests\adapters.py"", line 565, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='127.0.0.1', port=8000): Max retries exceeded with url: /test (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x0000024110972700>: Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it'))
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 58, in <module>
+    post_data(title[0].text, text[0].text, img['src'])
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 54, in <module>
+    print('отправка данных', img['src'], end=""\n\n\n"")
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
+"Traceback (most recent call last):
+  File ""c:\Users\shahzod.ravshanov\Desktop\Projects\Parcer\wpreboot\parcer\parcer.py"", line 54, in <module>
+    print('отправка данных', img['src'], end=""\n\n\n"")
+NameError: name 'img' is not defined
+
+";date: <built-in method now of type object at 0x00007FF9BC694650>
+
 
