@@ -1,22 +1,16 @@
-from django.contrib.sitemaps import Sitemap
+import os
+
+from django.core.files.base import ContentFile, File
+from django.core.files.temp import NamedTemporaryFile
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
-from django.shortcuts import get_object_or_404
-from django.db.utils import IntegrityError
-from django.core.files.base import ContentFile
-
-from rest_framework.parsers import MultiPartParser, FormParser, JSONParser, FileUploadParser
-from rest_framework.generics import CreateAPIView
-from rest_framework.response import Response
+from randomfilestorage.storage import RandomFileSystemStorage
 from rest_framework import status
-
-from yaturbo import YandexTurboFeed
-
+from rest_framework.response import Response
+from rest_framework.views import APIView
+import requests
 from blog.models import Post
-from blog.serializers import PostSerializer
-
-import base64
-
+import urllib.request as urllib2
 
 class Index(ListView):
     template_name = 'index.html'
@@ -60,17 +54,22 @@ class YandexTurbo(ListView):
     context_object_name = 'turbo'
     paginate_by = 1000
 
+random_storage = RandomFileSystemStorage(location='/media/')
 
+class ParceObjects(APIView):
+    
+    def post(self, request):
+        try:
+            form = request.data
+            title = form['title']
+            img_temp = NamedTemporaryFile()
+            img_temp.write(urllib2.urlopen(form['image']).read())
+            img_temp.flush()
+            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'))
+            return Response('', status=status.HTTP_201_CREATED)
+        except ValueError or OSError:
+            form = request.data
+            Post.objects.create(title=form['title'], content=form['content'])
+            return Response('', status=status.HTTP_201_CREATED)
 
-class ParceObjects(CreateAPIView):
-    queryset = Post.objects.all()
-    serializer_class = PostSerializer
-    parser_classes = [MultiPartParser, FormParser, JSONParser, FileUploadParser]
-
-    def perform_create(self, serializer):
-        if serializer.is_valid(raise_exception=True):
-            print(serializer)
-            serializer.save()
-            return Response(serializer.data, status=201)
-        return Response({'data': 'invalid data'}, status=400)
 
