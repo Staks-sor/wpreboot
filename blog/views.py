@@ -3,15 +3,19 @@ from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 from django.shortcuts import get_object_or_404
 from django.db.utils import IntegrityError
-from rest_framework.decorators import api_view
+from django.core.files.base import ContentFile
 
-from rest_framework.views import APIView
+from rest_framework.parsers import MultiPartParser, FormParser, JSONParser, FileUploadParser
+from rest_framework.generics import CreateAPIView
 from rest_framework.response import Response
 from rest_framework import status
+
 from yaturbo import YandexTurboFeed
 
 from blog.models import Post
 from blog.serializers import PostSerializer
+
+import base64
 
 
 class Index(ListView):
@@ -57,11 +61,16 @@ class YandexTurbo(ListView):
     paginate_by = 1000
 
 
-@api_view(["POST"])
-def ParceObjects(request, *args, **kwargs):
-    serializer = PostSerializer(data=request.POST)
-    # raise_exception= if form.error reutnr error and status400
-    if serializer.is_valid(raise_exception=True):
-        serializer.save()
-        return Response(serializer.data, status=201)
-    return Response({}, status=400)
+
+class ParceObjects(CreateAPIView):
+    queryset = Post.objects.all()
+    serializer_class = PostSerializer
+    parser_classes = [MultiPartParser, FormParser, JSONParser, FileUploadParser]
+
+    def perform_create(self, serializer):
+        if serializer.is_valid(raise_exception=True):
+
+            serializer.save(image=self.request.data.get('image'),)
+            return Response(serializer.data, status=201)
+        return Response({'data': 'invalid data'}, status=400)
+

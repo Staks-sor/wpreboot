@@ -8,7 +8,7 @@ urlpatterns = [
     path('post/<int:pk>', PostDetail.as_view(), name='detail'),
     path('urls', UrlAll.as_view(), name='url'),
     path('yandex/turbo', YandexTurbo.as_view(), name='turbo'),
-    path('test', ParceObjects, name='create')
+    path('test', ParceObjects.as_view(), name='create')
 ]
 
 

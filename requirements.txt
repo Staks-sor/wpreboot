@@ -4,6 +4,7 @@ Django==4.1
 django-ckeditor==6.5.0
 django-js-asset==2.0.0
 django-yaturbo==1.0.1
+django-extra-fields==3.0.2
 Pillow==9.2.0
 pytils==0.4.1
 six==1.16.0
@@ -18,3 +19,4 @@ lxml==4.9.1
 requests==2.28.1
 soupsieve==2.3.2.post1
 urllib3==1.26.12
+psycopg2
