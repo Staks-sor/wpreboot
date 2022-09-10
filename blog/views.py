@@ -67,9 +67,9 @@ class ParceObjects(APIView):
             img_temp.flush()
             Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'))
             return Response('', status=status.HTTP_201_CREATED)
-        except ValueError or OSError:
+        except (ValueError, OSError, ):
             form = request.data
-            Post.objects.create(title=form['title'], content=form['content'])
+            Post.objects.create(title=form['title'], content=form['content'],)
             return Response('', status=status.HTTP_201_CREATED)
 
 
