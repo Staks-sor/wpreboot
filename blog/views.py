@@ -62,6 +62,12 @@ random_storage = RandomFileSystemStorage(location='/media/')
 class ParceObjects(APIView):
     image = []
 
+    def get(self, request, *args, **kwargs):
+        try:
+            return Response("")
+        except:
+            return Response("")
+
     def post(self, request):
 
         try:
