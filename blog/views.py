@@ -32,8 +32,8 @@ class Index(ListView):
 class PostDetail(DetailView):
     template_name = 'Template/post-card.html'
 
-    def get(self, request, pk):
-        post = Post.objects.get(pk=pk)
+    def get(self, request, slug):
+        post = Post.objects.get(slug=slug)
         share = Post.objects.order_by('-date').order_by("?")[0:8]
         share_left = Post.objects.order_by('-date').order_by("?")[0:5]
         context = {
