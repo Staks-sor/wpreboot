@@ -246,3 +246,8 @@ body {
 .clearfy-cookie-accept:focus {
     opacity: 0.9;
 }
+
+.image-main {
+    height: 300px;
+    object-fit: cover;
+}
