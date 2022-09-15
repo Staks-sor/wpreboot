@@ -8,6 +8,7 @@ from . import models
 # Пост на сайте
 class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorWidget())
+    
 
     class Meta:
         model = models.Post
@@ -16,6 +17,7 @@ class PostAdminForm(forms.ModelForm):
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(models.Post, PostAdmin)
