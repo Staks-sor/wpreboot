@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/4.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
-
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -23,18 +23,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-bdh6gm+sd+yq$4()fh45w_@kva_^!vxcl8mav1c$p&rko7wu85'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['my-tips.ru', '62.113.99.151', '', 'localhost']
 
 SITE_ID = 1
 
 
-#REST_FRAMEWORK = {
-#    'DEFAULT_RENDERER_CLASSES': (
-#        'rest_framework.renderers.JSONRenderer',
-#    )
-#}
+REST_FRAMEWORK = {
+    'DEFAULT_RENDERER_CLASSES': (
+        'rest_framework.renderers.JSONRenderer',
+    )
+}
 
 
 # Application definition
@@ -99,8 +99,12 @@ WSGI_APPLICATION = 'wpreboot.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'mpreboot',
+        'USER': 'luxar',
+        'PASSWORD': 'sYst3m0ps',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
@@ -173,6 +177,7 @@ CKEDITOR_CONFIGS = {
     }
 }
 
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -209,12 +214,16 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-STATICFILES_DIRS = [
-    BASE_DIR / "static",
-    ]
+# STATICFILES_DIRS = [
+#    BASE_DIR / "static",
+#    ]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+
+
 CKEDITOR_UPLOAD_PATH = 'images'
 
-MEDIA_URL = '/media/'
+#MEDIA_URL = '/media/'
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
