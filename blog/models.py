@@ -5,6 +5,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Post(models.Model):
+    id = models.BigAutoField(primary_key=True)
     image = models.ImageField(upload_to='media/', verbose_name='Изображение', )
     title = models.CharField(max_length=500, verbose_name='Заголовок поста',)
     content = RichTextUploadingField(verbose_name='Содержимое поста',)
