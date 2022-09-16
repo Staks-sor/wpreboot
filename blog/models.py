@@ -26,4 +26,5 @@ class Post(models.Model):
         return self.title
 
     def get_absolute_url(self, **kwargs):
-        return f'/post/{self.slug}'
+        return f'/post/{self.id}/{self.slug}'
+ 

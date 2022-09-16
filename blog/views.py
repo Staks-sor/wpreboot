@@ -83,7 +83,7 @@ class ParceObjects(APIView):
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
             img_temp.flush()
-            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'))
+            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'), slug=form['slug'])
             return Response('', status=status.HTTP_201_CREATED)
         except (ValueError, OSError, URLError, HTTPError):
             form['image'] = choice(self.image)
@@ -92,7 +92,7 @@ class ParceObjects(APIView):
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
             img_temp.flush()
-            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'))
+            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'),slug=form['slug'])
             return Response('', status=status.HTTP_201_CREATED)
         except:
             return Response('Invalid data ', status=status.HTTP_200_OK)
