@@ -17,7 +17,7 @@ class PostAdminForm(forms.ModelForm):
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
 
-    prepopulated_fields = {"slug": ("title", 'date')}
+    prepopulated_fields = {"slug": ("title",)}
 
 
 admin.site.register(models.Post, PostAdmin)
