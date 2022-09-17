@@ -1,4 +1,5 @@
 import os
+import re 
 import requests
 import urllib.request as urllib2
 from urllib.error import URLError, HTTPError
@@ -81,7 +82,8 @@ class ParceObjects(APIView):
 
             form = request.data
             title = form['title']
-            slug = slugify(title)
+            new_string = re.sub(r'[^\w\s]', '', title)
+            slug = slugify(new_string)
             self.image.append(form['image'])
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
@@ -89,10 +91,11 @@ class ParceObjects(APIView):
             Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'), slug=slug)
             return Response('', status=status.HTTP_201_CREATED)
         except (ValueError, OSError, URLError, HTTPError):
-            form['image'] = choice(self.image)
             form = request.data
+            form['image'] = choice(self.image)
             title = form['title']
-            slug = slugify(title)
+            new_string = re.sub(r'[^\w\s]', '', title)
+            slug = slugify(new_string)
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
             img_temp.flush()
