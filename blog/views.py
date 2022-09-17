@@ -1,4 +1,6 @@
 import os
+import requests
+import urllib.request as urllib2
 from urllib.error import URLError, HTTPError
 
 from django.core.files.base import ContentFile, File
@@ -10,10 +12,10 @@ from randomfilestorage.storage import RandomFileSystemStorage
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
-import requests
 from random import choice
 from blog.models import Post
-import urllib.request as urllib2
+from pytils.translit import slugify
+
 
 
 class Index(ListView):
@@ -79,11 +81,12 @@ class ParceObjects(APIView):
 
             form = request.data
             title = form['title']
+            slug = slugify(title)
             self.image.append(form['image'])
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
             img_temp.flush()
-            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'), slug=form['slug'])
+            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'), slug=slug)
             return Response('', status=status.HTTP_201_CREATED)
         except (ValueError, OSError, URLError, HTTPError):
             form['image'] = choice(self.image)
