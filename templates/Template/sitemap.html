@@ -92,7 +92,7 @@
         {% for serv in post %}
             <tr>
                 <td>
-                    <a href="{% url 'blog:detail' serv.id %}">{{request.get_host}}{% url 'blog:detail' serv.id %}</a>
+                    <a href="{% url 'blog:detail' serv.slug %}">{{request.get_host}}{% url 'blog:detail' serv.slug %}</a>
                 </td>
                 <td>{{ serv.date }}</td>
             </tr>
