@@ -1,5 +1,5 @@
 import os
-import re 
+import re
 import requests
 import urllib.request as urllib2
 from urllib.error import URLError, HTTPError
@@ -16,7 +16,6 @@ from rest_framework.views import APIView
 from random import choice
 from blog.models import Post
 from pytils.translit import slugify
-
 
 
 class Index(ListView):
@@ -36,7 +35,7 @@ class Index(ListView):
 class PostDetail(DetailView):
     template_name = 'Template/post-card.html'
 
-    def get(self, request, pk, slug):
+    def get(self, request, slug):
         post = Post.objects.get(slug=slug)
         share = Post.objects.order_by('-date').order_by("?")[0:8]
         share_left = Post.objects.order_by('-date').order_by("?")[0:5]
@@ -84,11 +83,16 @@ class ParceObjects(APIView):
             title = form['title']
             new_string = re.sub(r'[^\w\s]', '', title)
             slug = slugify(new_string)
+
+            count = Post.objects.all().count()
+            current_slug = f'{slug}-{int(count) + 1}'
+
             self.image.append(form['image'])
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
             img_temp.flush()
-            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'), slug=slug)
+            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'),
+                                slug=current_slug)
             return Response('', status=status.HTTP_201_CREATED)
         except (ValueError, OSError, URLError, HTTPError):
             form = request.data
@@ -96,10 +100,16 @@ class ParceObjects(APIView):
             title = form['title']
             new_string = re.sub(r'[^\w\s]', '', title)
             slug = slugify(new_string)
+
+            count = Post.objects.all().count()
+            current_slug = f'{slug}-{int(count) + 1}'
+
             img_temp = NamedTemporaryFile()
             img_temp.write(urllib2.urlopen(form['image']).read())
             img_temp.flush()
-            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'),slug=slug)
+
+            Post.objects.create(title=form['title'], content=form['content'], image=File(img_temp, name=f'{title}.jpg'),
+                                slug=current_slug)
             return Response('', status=status.HTTP_201_CREATED)
         except:
             return Response('Invalid data ', status=status.HTTP_200_OK)

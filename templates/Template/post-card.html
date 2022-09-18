@@ -930,7 +930,7 @@
                   {% for serv in share_left %}
                   <div class="post-card post-card--related">
                     <div class="post-card__thumbnail">
-                      <a href="{% url 'blog:detail' serv.id serv.slug %}">
+                      <a href="{% url 'blog:detail' serv.slug %}">
                         <img
                           class="image_post"
                           width="335"
@@ -943,7 +943,7 @@
                       </a>
                     </div>
                     <div class="post-card__title">
-                      <a href="{% url 'blog:detail' serv.id serv.slug %}">
+                      <a href="{% url 'blog:detail' serv.slug %}">
                         {{ serv.title }}
                       </a>
                     </div>
@@ -972,7 +972,7 @@
               {% for serv in share %}
               <div class="post-card post-card--related">
                 <div class="post-card__thumbnail">
-                  <a href="{% url 'blog:detail' serv.id serv.slug %}">
+                  <a href="{% url 'blog:detail' serv.slug %}">
                     <img
                       class="image_post"
                       width="335"
@@ -985,7 +985,7 @@
                   </a>
                 </div>
                 <div class="post-card__title">
-                  <a href="{% url 'blog:detail' serv.id serv.slug %}">
+                  <a href="{% url 'blog:detail' serv.slug %}">
                     {{ serv.title }}
                   </a>
                 </div>

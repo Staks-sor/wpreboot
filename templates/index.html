@@ -4,7 +4,7 @@
 {% block swiper-one %}
     {% for serv in slider %}
         <div class="swiper-slide">
-            <a href="{% url 'blog:detail' serv.id serv.slug %}">
+            <a href="{% url 'blog:detail'  serv.slug %}">
                 <div class="card-slider__image" style="background-image: url({{ serv.image.url }});"></div>
                 <div class="card-slider__body">
                     <div class="card-slider__body-inner">
@@ -30,7 +30,7 @@
 {% block post-cards %}
     {% for serv in post %}
         <div class="post-card post-card--grid w-animate" data-animate-style="fadeinup">
-            <a href="{% url 'blog:detail' serv.id serv.slug %}">
+            <a href="{% url 'blog:detail' serv.slug %}">
                 <div class="post-card__thumbnail">
                     <img
                     class="image-main"
@@ -38,10 +38,10 @@
                             height="220"
                             src="{{ serv.image.url }}"
                             class="attachment-reboot_small size-reboot_small wp-post-image"
-                            alt="{% url 'blog:detail' serv.id serv.slug %}"
+                            alt="{% url 'blog:detail' serv.slug %}"
                             loading="lazy"
                             itemprop="image"
-                            href="{% url 'blog:detail' serv.id serv.slug %}"
+                            href="{% url 'blog:detail' serv.slug %}"
                     />
                     <span itemprop="articleSection" class="post-card__category"></span>
                 </div>
@@ -49,7 +49,7 @@
             <div class="post-card__body">
                 <div class="post-card__title" itemprop="name">
                     <span itemprop="headline">
-                        <a href="{% url 'blog:detail' serv.id serv.slug %}">{{ serv.title }}</a>
+                        <a href="{% url 'blog:detail' serv.slug %}">{{ serv.title }}</a>
                     </span>
                 </div>
             </div>
