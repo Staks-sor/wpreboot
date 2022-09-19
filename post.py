@@ -3,6 +3,45 @@ import json
 import base64
 
 
+#Staks edition -------------------
+import csv
+import sys
+
+import requests
+
+
+def get_post_my_tips(link):
+    with open('url_image.csv', 'r', newline='') as csvfile:
+        spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
+        for row in spamreader:
+            url_image_moment = ', '.join(row)
+            print(url_image_moment)
+
+            data = {
+                'title': 'like',
+                'content': 'something2',
+            }
+            try:
+                response = requests.post(link, json=data, files={'image': url_image_moment})
+
+                print(response, str(response.json()))
+
+            except:
+                print(sys.exc_info())
+
+
+if __name__ == "__main__":
+    link = 'https://my-tips.ru/test'
+    get_post_my_tips(link=link)
+#Staks edition -----------------------------------------------
+
+
+
+
+
+
+
+
 link = 'http://127.0.0.1:8000/test'
 image = open('images/randompic.jpg','rb')
 
